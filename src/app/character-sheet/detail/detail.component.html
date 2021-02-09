@@ -1,0 +1,12 @@
+<div>
+    <label for="character-detail-{{ label }}">
+        {{ label }}
+    </label>
+    <input id="character-detail-{{ label }}"
+           name="character-detail-{{ label }}"
+           class="form-control"
+           type="text"
+           [(ngModel)]="value"
+           (input)="onInput()"
+    />
+</div>

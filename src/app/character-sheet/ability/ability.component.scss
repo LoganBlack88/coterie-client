@@ -1,0 +1,22 @@
+
+$medium-black: #464646;
+
+label {
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.dot-matrix {
+    align-self: center;
+
+    input {
+        float: right;
+        margin: 0.125rem;
+
+        &:checked {
+            border-color: $medium-black;
+            background-color: $medium-black;
+            background-image: none !important;
+        }
+    }
+}

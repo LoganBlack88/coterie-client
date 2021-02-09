@@ -1,0 +1,19 @@
+<div class="row g-1">
+    <label for="discipline-{{ discipline.name }}"
+           class="col-form-label-sm col-6">
+        {{ discipline.name }}
+    </label>
+    <div class="dot-matrix col-6">
+        <input *ngFor="let index of [5,4,3,2,1]"
+               id="discipline-{{ discipline.name }}"
+               type="radio"
+               class="form-check-input"
+               [checked]="index <= discipline.ranks"
+               (click)="onDotClick(index)"
+        />
+    </div>
+</div>
+<div class="row g-1" *ngFor="let power of discipline.powers">
+    <p class="col col-2 rank">{{ power.rank }}:</p>
+    <p class="col col-10 name">{{ power.name }}</p>
+</div>

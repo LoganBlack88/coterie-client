@@ -1,0 +1,76 @@
+<section class="card sheet-border">
+
+    <section class="sheet-section">
+        <h2>Character Details</h2>
+        <div class="row row-cols-3">
+            <div class="col">
+                <app-detail label="Name"
+                            [(value)]="character.name">
+                </app-detail>
+                <app-detail label="Concept"
+                            [(value)]="character.concept">
+                </app-detail>
+                <app-detail label="Chronicle"
+                            [(value)]="character.chronicle">
+                </app-detail>
+            </div>
+            <div class="col">
+                <app-detail label="Ambition"
+                            [(value)]="character.ambition">
+                </app-detail>
+                <app-detail label="Desire"
+                            [(value)]="character.desire">
+                </app-detail>
+                <app-detail label="Predator Type"
+                            [(value)]="character.predatorType">
+                </app-detail>
+            </div>
+            <div class="col">
+                <app-detail label="Clan"
+                            [(value)]="character.clan">
+                </app-detail>
+                <app-detail label="Generation"
+                            [(value)]="character.generation">
+                </app-detail>
+                <app-detail label="Sire"
+                            [(value)]="character.sire">
+                </app-detail>
+            </div>
+        </div>
+    </section>
+
+    <hr />
+    <section class="sheet-section">
+        <h2>Attributes</h2>
+        <div class="row row-cols-3 g-4 gy-2">
+            <div class="col" *ngFor="let type of AbilityType.all()">
+                <ng-container *ngFor="let attribute of character.getAttributesByType(type)">
+                    <app-attribute [attribute]="attribute"></app-attribute>
+                </ng-container>
+            </div>
+        </div>
+    </section>
+
+    <hr />
+    <section class="sheet-section">
+        <h2>Skills</h2>
+        <div class="row row-cols-3 g-4 gy-2">
+            <div class="col" *ngFor="let type of AbilityType.all()">
+                <ng-container *ngFor="let skill of character.getSkillsByType(type)">
+                    <app-skill [skill]="skill"></app-skill>
+                </ng-container>
+            </div>
+        </div>
+    </section>
+
+    <hr />
+    <section class="sheet-section">
+        <h2>Disciplines</h2>
+        <div class="row row-cols-3 g-4 gy-2" *ngFor="let row of this.disciplineRows">
+            <div class="col" *ngFor="let discipline of row">
+                <app-discipline [discipline]="discipline"></app-discipline>
+            </div>
+        </div>
+    </section>
+
+</section>

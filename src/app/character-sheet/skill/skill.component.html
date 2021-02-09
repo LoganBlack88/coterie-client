@@ -1,0 +1,15 @@
+<div class="row g-1">
+    <label for="skill-{{skill.name}}"
+           class="col-form-label-sm col-6">
+        {{ skill.name }}
+    </label>
+    <div class="dot-matrix col-6">
+        <input *ngFor="let index of [5,4,3,2,1]"
+               id="skill-{{skill.name}}"
+               type="radio"
+               class="form-check-input"
+               [checked]="index <= skill.ranks"
+               (click)="onDotClick(index)"
+        />
+    </div>
+</div>
