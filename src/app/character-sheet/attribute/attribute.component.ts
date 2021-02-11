@@ -1,6 +1,7 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Attribute } from './attribute.interface';
 import { StateAwareComponent } from '../state-aware.component';
+import { AbilitySelectionService } from '../ability/ability-selection.service';
 
 
 @Component({
@@ -8,12 +9,20 @@ import { StateAwareComponent } from '../state-aware.component';
     templateUrl: './attribute.component.html',
     styleUrls: ['./attribute.component.scss']
 })
-export class AttributeComponent extends StateAwareComponent {
+export class AttributeComponent extends StateAwareComponent implements OnInit {
 
     @Input() attribute: Attribute;
 
-    constructor() {
+    selected = false;
+
+    constructor(private abilitySelectionService: AbilitySelectionService) {
         super();
+    }
+
+    ngOnInit(): void {
+        this.abilitySelectionService.attributeChange.subscribe((newAttr: Attribute) => {
+            this.selected = this.abilitySelectionService.isCurrentAttribute(this.attribute);
+        });
     }
 
     afterStateChange(): void {

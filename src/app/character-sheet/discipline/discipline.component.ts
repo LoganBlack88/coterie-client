@@ -1,20 +1,30 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Discipline } from './discipline.interface';
 import { StateAwareComponent } from '../state-aware.component';
 import { CharacterSheetStates } from '../character-sheet-state.enum';
 import { DisciplinePower } from './discipline-power.interface';
+import { Attribute } from '../attribute/attribute.interface';
+import { AbilitySelectionService } from '../ability/ability-selection.service';
 
 @Component({
   selector: 'app-discipline',
   templateUrl: './discipline.component.html',
   styleUrls: ['./discipline.component.scss']
 })
-export class DisciplineComponent extends StateAwareComponent {
+export class DisciplineComponent extends StateAwareComponent implements OnInit {
 
     @Input() discipline: Discipline;
 
-    constructor() {
+    selected = false;
+
+    constructor(private abilitySelectionService: AbilitySelectionService) {
         super();
+    }
+
+    ngOnInit(): void {
+        this.abilitySelectionService.disciplineChange.subscribe((newDisc: Discipline) => {
+            this.selected = this.abilitySelectionService.isCurrentDiscipline(this.discipline);
+        });
     }
 
     afterStateChange(): void {

@@ -1,9 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { CharacterSheet } from './character-sheet.model';
-import { AbilityType } from './ability/ability-type.enum';
-import { Discipline } from './discipline/discipline.interface';
-import { CharacterSheetState, CharacterSheetStates } from './character-sheet-state.enum';
 import { BehaviorSubject } from 'rxjs';
+
+import { AbilitySelectionService } from './ability/ability-selection.service';
+import { AbilityType } from './ability/ability-type.enum';
+import { Attribute } from './attribute/attribute.interface';
+import { CharacterSheet } from './character-sheet.model';
+import { CharacterSheetState, CharacterSheetStates } from './character-sheet-state.enum';
+import { Discipline } from './discipline/discipline.interface';
+import { Skill } from './skill/skill.interface';
 
 
 const MODEL = new CharacterSheet({
@@ -75,12 +79,36 @@ export class CharacterSheetComponent implements OnInit {
 
     state: BehaviorSubject<CharacterSheetState> = new BehaviorSubject(CharacterSheetStates.VIEW);
 
-    constructor() {
-    }
+
+    constructor(private abilitySelectionService: AbilitySelectionService) {}
 
     ngOnInit(): void {
         this.character = MODEL;
         this.disciplineRows = this.getDisciplinesForGrid();
+    }
+
+    selectAttribute(attribute: Attribute) {
+        if (this.abilitySelectionService.isCurrentAttribute(attribute)) {
+            this.abilitySelectionService.updateAttribute(null);
+        } else {
+            this.abilitySelectionService.updateAttribute(attribute);
+        }
+    }
+
+    selectDiscipline(discipline: Discipline) {
+        if (this.abilitySelectionService.isCurrentDiscipline(discipline)) {
+            this.abilitySelectionService.updateDiscipline(null);
+        } else {
+            this.abilitySelectionService.updateDiscipline(discipline);
+        }
+    }
+
+    selectSkill(skill: Skill) {
+        if (this.abilitySelectionService.isCurrentSkill(skill)) {
+            this.abilitySelectionService.updateSkill(null);
+        } else {
+            this.abilitySelectionService.updateSkill(skill);
+        }
     }
 
     toggleState(): void {

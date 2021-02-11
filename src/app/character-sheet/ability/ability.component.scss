@@ -1,6 +1,7 @@
+@import '../../shared/styles/color-pallete';
 
-$medium-black: #464646;
-$dot-color: $medium-black;
+$ability-select-color: lighten($carmine, 10%);
+$dot-color: $raisin-black;
 
 
 label {
@@ -25,5 +26,16 @@ label {
                 opacity: 1;
             }
         }
+    }
+}
+
+.selectable,
+.selectable > * {
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+
+    &.selected {
+        background-color: $ability-select-color;
     }
 }

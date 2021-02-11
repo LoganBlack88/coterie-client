@@ -60,7 +60,10 @@
         <div class="row row-cols-3 g-4 gy-2">
             <div class="col" *ngFor="let type of AbilityType.all()">
                 <ng-container *ngFor="let attribute of character.getAttributesByType(type)">
-                    <app-attribute [attribute]="attribute" [state]="state"></app-attribute>
+                    <app-attribute [attribute]="attribute"
+                                   [state]="state"
+                                   (click)="selectAttribute(attribute)">
+                    </app-attribute>
                 </ng-container>
             </div>
         </div>
@@ -72,7 +75,10 @@
         <div class="row row-cols-3 g-4 gy-2">
             <div class="col" *ngFor="let type of AbilityType.all()">
                 <ng-container *ngFor="let skill of character.getSkillsByType(type)">
-                    <app-skill [skill]="skill" [state]="state"></app-skill>
+                    <app-skill [skill]="skill"
+                               [state]="state"
+                               (click)="selectSkill(skill)">
+                    </app-skill>
                 </ng-container>
             </div>
         </div>
@@ -83,7 +89,10 @@
         <h2>Disciplines</h2>
         <div class="row row-cols-3 g-4 gy-2" *ngFor="let row of this.disciplineRows">
             <div class="col" *ngFor="let discipline of row">
-                <app-discipline [discipline]="discipline" [state]="state"></app-discipline>
+                <app-discipline [discipline]="discipline"
+                                [state]="state"
+                                (click)="selectDiscipline(discipline)">
+                </app-discipline>
             </div>
         </div>
     </section>
