@@ -1,4 +1,4 @@
-<div>
+<div *ngIf="isEditState()">
     <label for="character-detail-{{ label }}">
         {{ label }}
     </label>
@@ -9,4 +9,8 @@
            [(ngModel)]="value"
            (input)="onInput()"
     />
+</div>
+<div *ngIf="isViewState()">
+    <label for="character-detail-view-{{ label }}">{{ label }}</label>
+    <p id="character-detail-view-{{ label }}">{{ value }}</p>
 </div>

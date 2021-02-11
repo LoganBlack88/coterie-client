@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Attribute } from './attribute.interface';
+import { StateAwareComponent } from '../state-aware.component';
 
 
 @Component({
@@ -7,12 +8,17 @@ import { Attribute } from './attribute.interface';
     templateUrl: './attribute.component.html',
     styleUrls: ['./attribute.component.scss']
 })
-export class AttributeComponent {
+export class AttributeComponent extends StateAwareComponent {
 
-    @Input()
-    attribute: Attribute;
+    @Input() attribute: Attribute;
 
-    constructor() { }
+    constructor() {
+        super();
+    }
+
+    afterStateChange(): void {
+        // do nothing
+    }
 
     onDotClick(value: number) {
         // If they toggled the current rank, reset skill to 0

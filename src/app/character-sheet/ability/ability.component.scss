@@ -1,5 +1,7 @@
 
 $medium-black: #464646;
+$dot-color: $medium-black;
+
 
 label {
     font-size: 1rem;
@@ -9,14 +11,19 @@ label {
 .dot-matrix {
     align-self: center;
 
-    input {
+    input[type=radio] {
         float: right;
         margin: 0.125rem;
 
         &:checked {
-            border-color: $medium-black;
-            background-color: $medium-black;
+            border-color: $dot-color;
+            background-color: $dot-color;
             background-image: none !important;
+
+            &:disabled {
+                // Override Bootstrap opacity 0.5 for disabled inputs
+                opacity: 1;
+            }
         }
     }
 }

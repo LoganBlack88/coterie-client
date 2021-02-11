@@ -1,39 +1,54 @@
 <section class="card sheet-border">
 
+    <div class="sheet-controls">
+        <button (click)="toggleState()" class="btn btn-primary">
+            {{ (state.value === CharacterSheetStates.VIEW) ? CharacterSheetStates.EDIT : CharacterSheetStates.VIEW }}
+        </button>
+    </div>
+
     <section class="sheet-section">
         <h2>Character Details</h2>
         <div class="row row-cols-3">
             <div class="col">
                 <app-detail label="Name"
-                            [(value)]="character.name">
+                            [(value)]="character.name"
+                            [state]="state">
                 </app-detail>
                 <app-detail label="Concept"
-                            [(value)]="character.concept">
+                            [(value)]="character.concept"
+                            [state]="state">
                 </app-detail>
                 <app-detail label="Chronicle"
-                            [(value)]="character.chronicle">
+                            [(value)]="character.chronicle"
+                            [state]="state">
                 </app-detail>
             </div>
             <div class="col">
                 <app-detail label="Ambition"
-                            [(value)]="character.ambition">
+                            [(value)]="character.ambition"
+                            [state]="state">
                 </app-detail>
                 <app-detail label="Desire"
-                            [(value)]="character.desire">
+                            [(value)]="character.desire"
+                            [state]="state">
                 </app-detail>
                 <app-detail label="Predator Type"
-                            [(value)]="character.predatorType">
+                            [(value)]="character.predatorType"
+                            [state]="state">
                 </app-detail>
             </div>
             <div class="col">
                 <app-detail label="Clan"
-                            [(value)]="character.clan">
+                            [(value)]="character.clan"
+                            [state]="state">
                 </app-detail>
                 <app-detail label="Generation"
-                            [(value)]="character.generation">
+                            [(value)]="character.generation"
+                            [state]="state">
                 </app-detail>
                 <app-detail label="Sire"
-                            [(value)]="character.sire">
+                            [(value)]="character.sire"
+                            [state]="state">
                 </app-detail>
             </div>
         </div>
@@ -45,7 +60,7 @@
         <div class="row row-cols-3 g-4 gy-2">
             <div class="col" *ngFor="let type of AbilityType.all()">
                 <ng-container *ngFor="let attribute of character.getAttributesByType(type)">
-                    <app-attribute [attribute]="attribute"></app-attribute>
+                    <app-attribute [attribute]="attribute" [state]="state"></app-attribute>
                 </ng-container>
             </div>
         </div>
@@ -57,7 +72,7 @@
         <div class="row row-cols-3 g-4 gy-2">
             <div class="col" *ngFor="let type of AbilityType.all()">
                 <ng-container *ngFor="let skill of character.getSkillsByType(type)">
-                    <app-skill [skill]="skill"></app-skill>
+                    <app-skill [skill]="skill" [state]="state"></app-skill>
                 </ng-container>
             </div>
         </div>
@@ -68,7 +83,7 @@
         <h2>Disciplines</h2>
         <div class="row row-cols-3 g-4 gy-2" *ngFor="let row of this.disciplineRows">
             <div class="col" *ngFor="let discipline of row">
-                <app-discipline [discipline]="discipline"></app-discipline>
+                <app-discipline [discipline]="discipline" [state]="state"></app-discipline>
             </div>
         </div>
     </section>

@@ -10,6 +10,7 @@
                class="form-check-input"
                [checked]="index <= skill.ranks"
                (click)="onDotClick(index)"
+               [disabled]="isViewState()"
         />
     </div>
 </div>
