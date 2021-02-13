@@ -1,5 +1,7 @@
-@import '../../shared/styles/color-pallete';
+@import '../../shared/styles/color-palette';
+@import '../../shared/styles/media-queries';
 
+// Local color palette
 $ability-select-color: lighten($carmine, 10%);
 $dot-color: $raisin-black;
 
@@ -11,15 +13,22 @@ label {
 
 .dot-matrix {
     align-self: center;
+    display: flex;
+    margin-top: 0;
+    margin-bottom: 0.25rem;
+
+    @include media-query-xl() {
+        justify-content: flex-end;
+        margin-top: 0.25rem;
+    }
 
     input[type=radio] {
-        float: right;
         margin: 0.125rem;
 
         &:checked {
-            border-color: $dot-color;
             background-color: $dot-color;
             background-image: none !important;
+            border-color: $dot-color;
 
             &:disabled {
                 // Override Bootstrap opacity 0.5 for disabled inputs
