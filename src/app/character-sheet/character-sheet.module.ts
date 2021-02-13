@@ -21,6 +21,9 @@ import { SkillComponent } from './skill/skill.component';
         CommonModule,
         FormsModule
     ],
+    exports: [
+        CharacterSheetComponent
+    ],
     providers: [
         AbilitySelectionService
     ]

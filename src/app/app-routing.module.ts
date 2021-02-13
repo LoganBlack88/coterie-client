@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { CharacterSheetComponent } from './character-sheet/character-sheet.component';
+import { CoterieComponent } from './coterie/coterie.component';
 
 
 const routes: Routes = [
-    {  path: '', component: CharacterSheetComponent }
+    {  path: '', component: CoterieComponent }
 ];
 
 @NgModule({

@@ -7,5 +7,3 @@ export class CharacterSheetStates {
     static EDIT: CharacterSheetState = 'Edit';
 
 }
-
-

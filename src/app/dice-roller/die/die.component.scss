@@ -1,0 +1,39 @@
+@import '../../shared/styles/color-pallete';
+
+$die-size: 48px;
+
+svg, span {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: $die-size;
+    width: $die-size;
+}
+
+span {
+    color: white;
+    font-size: 1.375rem;
+    font-weight: bold;
+    padding-top: 7px;
+    text-align: center;
+}
+
+.die-wrapper {
+    position: relative;
+    height: $die-size;
+    width: $die-size;
+}
+
+.die-path {
+    fill: $raisin-black;
+}
+
+
+.hunger {
+    .die-path {
+        fill: $carmine;
+    }
+    span {
+        color: $raisin-black;
+    }
+}

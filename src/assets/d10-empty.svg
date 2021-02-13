@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg aria-hidden="true" focusable="false" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+  <path d="M 12 2 C 11.5 2 11 2.19 10.59 2.59 L 2.59 10.59 C 1.8 11.37 1.8 12.63 2.59 13.41 L 10.59 21.41 C 11.37 22.2 12.63 22.2 13.41 21.41 L 21.41 13.41 C 22.2 12.63 22.2 11.37 21.41 10.59 L 13.41 2.59 C 13 2.19 12.5 2 12 2 M 12 4 L 20 12 L 12 20 L 4 12 L 12 4 Z" fill="#626262"/>
+</svg>

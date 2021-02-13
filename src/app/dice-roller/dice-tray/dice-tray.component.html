@@ -1,0 +1,14 @@
+
+<app-dice-pool [dicePool]="dicePool"></app-dice-pool>
+
+<br/>
+<button (click)="rollDice()">roll</button>
+
+<br />
+<div *ngIf="dicePool?.result">
+    <p>Successes: {{ dicePool.result.getSuccesses() }}</p>
+    <p>Criticals: {{ dicePool.result.getCriticals() }}</p>
+    <p>Total Failure: {{ dicePool.result.isTotalFailure() }}</p>
+    <p>Possible Messy Critical: {{ dicePool.result.isPossibleMessyCritical() }}</p>
+    <p>Possible Bestial Failure: {{ dicePool.result.isPossibleBestialFailure() }}</p>
+</div>

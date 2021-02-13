@@ -4,6 +4,9 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CharacterSheetModule } from './character-sheet/character-sheet.module';
+import { CoterieModule } from './coterie/coterie.module';
+import { DiceRollerModule } from './dice-roller/dice-roller.module';
+
 
 @NgModule({
     declarations: [
@@ -12,7 +15,9 @@ import { CharacterSheetModule } from './character-sheet/character-sheet.module';
     imports: [
         BrowserModule,
         AppRoutingModule,
-        CharacterSheetModule
+        CharacterSheetModule,
+        CoterieModule,
+        DiceRollerModule
     ],
     providers: [],
     bootstrap: [AppComponent]

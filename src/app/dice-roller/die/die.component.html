@@ -1,0 +1,6 @@
+<div class="die-wrapper" [ngClass]="{ 'hunger' : die.type === DieTypes.HUNGER }">
+    <svg aria-hidden="true" focusable="false" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path class="die-path" d="M 11.986 0.025 C 11.388 0.025 10.79 0.252 10.299 0.731 L 0.727 10.303 C -0.218 11.236 -0.218 12.743 0.727 13.677 L 10.299 23.248 C 11.232 24.194 12.74 24.194 13.673 23.248 L 23.245 13.677 C 24.19 12.743 24.19 11.236 23.245 10.303 L 13.673 0.731 C 13.183 0.252 12.584 0.025 11.986 0.025" fill="#626262" style=""/>
+    </svg>
+    <span>{{ die.value }}</span>
+</div>
